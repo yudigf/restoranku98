@@ -31,9 +31,9 @@
 
                     @endphp
 
-                    @foreach ($carat as $item)
+                    @foreach ($cart as $item)
                         @php
-                          $itemTotal = $item->price * $item->quantity;  
+                          $itemTotal = $item['price'] * $item['qty'];  
                         @endphp
                         
                     @endforeach
@@ -79,6 +79,12 @@
                 </tbody>
             </table>
         </div>
+
+        @php
+            $tax = $subtotal * 0.1;
+            $total = $subtotal + $tax;
+        @endphp
+
         <div class="row g-4 justify-content-end mt-1">
             <div class="col-8"></div>
             <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
@@ -87,18 +93,18 @@
                         <h2 class="display-6 mb-4">Total <span class="fw-normal">Pesanan</span></h2>
                         <div class="d-flex justify-content-between mb-4">
                             <h5 class="mb-0 me-4">Subtotal</h5>
-                            <p class="mb-0">Rp85.000,00</p>
+                            <p class="mb-0">{{ 'Rp.'. number_format($subtotal, 0, ',','.') }}</p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="mb-0 me-4">Pajak (10%)</p>
                             <div class="">
-                                <p class="mb-0">Rp8.500,00</p>
+                                <p class="mb-0">{{ 'Rp.'. number_format($tax, 0, ',','.') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="py-4 mb-4 border-top d-flex justify-content-between">
                         <h4 class="mb-0 ps-4 me-4">Total</h4>
-                        <h5 class="mb-0 pe-4">Rp93.500,00</h5>
+                        <h5 class="mb-0 pe-4">{{ 'Rp.'. number_format($total, 0, ',','.') }}</h5>
                     </div>
                     
                 </div>
