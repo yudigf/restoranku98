@@ -14,8 +14,8 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['category_name' => 'Makanan', 'description' => 'Kategori untuk semua jenis makanan'],
-            ['category_name' => 'Minuman', 'description' => 'Kategori untuk semua jenis minuman'],
+            ['category_name' => 'Makanan', 'description' => 'Kategori makanan'],
+            ['category_name' => 'Minuman', 'description' => 'Kategori minuman'],
         ];
 
         DB::table('categories')->insert($categories);
