@@ -23,22 +23,23 @@ class MenuController extends Controller
     public function cart()
     {
         $cart = Session::get('cart');
-        return view('customer.cart');
+        return view('customer.cart',compact('cart'));
     }
 
-    public function addToCart(Request $request, $id)
+    public function addToCart(Request $request)
     {
-        $menuId = $request->input('id');
+        $menuId = $request->input('menu_id');
         $menu = Item::find($menuId);
 
         if (!$menu) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Menu not found'
+                'message' => 'Menu tidak Ditemukan'
             ]);
         }
 
         $cart = Session::get('cart');
+        
         if (isset($cart[$menuId])) {
             $cart[$menuId]['qty'] += 1;
         } else {
