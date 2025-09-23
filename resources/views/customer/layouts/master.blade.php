@@ -37,7 +37,7 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 
-    {{-- @yield('script') --}}
+    @yield('script')
 
     </body>
 </html>
