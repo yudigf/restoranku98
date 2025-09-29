@@ -1,6 +1,15 @@
 @extends('customer.layouts.master')
 
 @section('content')
+ <!-- Single Page Header start -->
+ <div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Keranjang</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item active text-primary">Silakan cek pesanan Anda</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
 <div class="container-fluid py-5">
     <div class="container py-5">
         @if (session('success'))
@@ -41,7 +50,7 @@
                     <tr>
                         <th scope="row">
                             <div class="d-flex align-items-center">
-                                <img src="https://images.unsplash.com/photo-1591325418441-ff678baf78ef" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                <img src="{{ asset('img_item_upload/'. $item['img']) }}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" onerror="this.onerror=null;this.src='{{ $item['img'] }}';">
                             </div>
                         </th>
                         <td>
