@@ -12,7 +12,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <form class="form" action="{{ route('items.store') }}" enctype="multipart/form-data">
+            <form class="form" action="{{ route('items.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="form-body">
                     <div class="row">
@@ -25,8 +25,9 @@
 
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea input type="text" class="form-control" id="description" placeholder="Masukkan Deskripsi Menu" name="description" required> </textarea>
-                            </div>
+                                <textarea class="form-control" id="description" name="description" placeholder="Masukkan Deskripsi Menu" required></textarea>
+                              </div>
+                              
 
                             <div class="form-group">
                                 <label for="price">Harga</label>
@@ -45,7 +46,7 @@
                             
                             <div class="form-group">
                                 <label for="image">Gambar</label>
-                                <input type="file" class="form-control" id="image" name="image" required>
+                                <input type="file" class="form-control" id="image" name="img" required>
                             </div>
 
                             <div class="form-group">
