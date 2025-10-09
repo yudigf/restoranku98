@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Category')
+@section('title', 'Daftar Menu')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/admin/extensions/simple-datatables/style.css') }}">
