@@ -28,15 +28,14 @@
                         <div class="col-md-12">
 
                             <div class="form-group">
-                                <label for="basicInput">Nama Menu</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Menu" name="role_name" required>
+                                <label for="basicInput">Nama Role</label>
+                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Role" name="role_name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea class="form-control" id="description" name="description" placeholder="Masukkan Deskripsi Menu" required></textarea>
-                              </div>
-                              
+                                <textarea class="form-control" id="description" name="description" placeholder="Masukkan Username" required></textarea>
+                            </div>
 
                             <div class="form-group">
                                 <label for="is_active">Status</label>
