@@ -9,8 +9,8 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $order = Order::all();
+        $orders = Order::all()->sortByDesc('created_at');
 
-        return view('admin.orders.index', compact('order'));
+        return view('admin.order.index', compact('orders'));
     }
 }
