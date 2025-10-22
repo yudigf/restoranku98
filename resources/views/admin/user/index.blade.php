@@ -24,11 +24,6 @@
         </div>
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">
-                        Simple Datatable
-                    </h5>
-                </div>
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">

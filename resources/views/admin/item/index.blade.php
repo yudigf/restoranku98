@@ -24,11 +24,6 @@
         </div>
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title">
-                        Simple Datatable
-                    </h5>
-                </div>
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -53,7 +48,8 @@
                             @foreach ($items as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('img_item_upload/'. $item->img) }}" width="60" class="img-fluid rounded-top" alt="" onerror="this.onerror=null;this.src='{{ $item->img }}';">
+                                    <td>
+                                        <img src="{{ asset('img_item_upload/'. $item->img) }}" width="60" class="img-fluid rounded-top" alt="" onerror="this.onerror=null;this.src='{{ $item->img }}';">
                                     </td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ Str::limit($item->description, 15) }}</td>
