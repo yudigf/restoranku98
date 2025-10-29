@@ -31,7 +31,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <table class="table table-striped" id="table1">
+                    <table class="table table-striped" id="table1" style="white-space: nowrap;">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -43,7 +43,7 @@
                                 <th>Metode Pembayaran</th>
                                 <th>Catatan</th>
                                 <th>Dibuat Pada</th>
-                                <th>Aksi</th>
+                                <th colspan="2">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,12 +67,30 @@
                                     <td>{{ $order->note ?? '-' }}</td>
                                     <td>{{ $order->created_at->format('d-m-Y H:i') }}</td>
                                     <td>
-                                        <span class="badge bg-primary">
+                                        <span class="btn btn-primary btn-sm">
                                             <a href="{{ route('orders.show', $order->id) }}" class="text-white">
                                                 <i class="bi bi-eye"></i> lihat
                                             </a>
                                         </span>
-                                       
+                                    </td>
+                                    <td>
+                                        @if (Auth::user()->role->role_name == 'admin' || Auth::user()->role->role_name == 'cashier')
+                                            @if ($order->status == 'pending' && $order->payment_method == 'tunai')
+                                                <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-success btn-sm">
+                                                        <i class="bi bi-check-circle"></i> Terima Pembayaran
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        @elseif (Auth::user()->role->role_name == 'chef' && $order->status == 'settlement')
+                                            <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success btn-sm">
+                                                    <i class="bi bi-check-circle"></i> Pesanan Siap
+                                                </button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -80,7 +98,6 @@
                     </table>
                 </div>
             </div>
-
         </section>
     </div>
 @endsection
